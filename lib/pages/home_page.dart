@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quest_tracker/models/quest.dart';
+import 'package:quest_tracker/pages/add_quest_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -125,7 +126,19 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //TODO: Naviagte to Ad Quest screen
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AddQuestPage(
+                onAddQuest: (newQuest) {
+                  setState(() {
+                    quests.add(newQuest);
+                    totalXP = calculateTotalXP();
+                  });
+                },
+              ),
+            ),
+          );
         },
         backgroundColor: const Color(0xFFFFC857),
         child: const Icon(Icons.add, color: Colors.black, size: 35),
