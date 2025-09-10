@@ -78,26 +78,6 @@ class _AddQuestPageState extends State<AddQuestPage> {
               ),
               const SizedBox(height: 16),
 
-              // XP
-              TextFormField(
-                style: const TextStyle(
-                  fontFamily: 'PixelFont',
-                  color: Colors.white,
-                ),
-                decoration: const InputDecoration(
-                  labelText: 'XP (default 10)',
-                  labelStyle: TextStyle(color: Colors.white70),
-                  border: OutlineInputBorder(),
-                ),
-                keyboardType: TextInputType.number,
-                onSaved: (value) {
-                  xp = int.tryParse(value ?? '10') ?? 10;
-                },
-              ),
-              const SizedBox(height: 16),
-
-              const SizedBox(height: 24),
-
               // Save Button
               ElevatedButton(
                 onPressed: () {
