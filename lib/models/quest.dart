@@ -3,7 +3,7 @@ class Quest {
   String title;
   String description;
   int xp;
-  String difficulty;
+  //String difficulty;
   bool completed;
 
   Quest({
@@ -11,7 +11,7 @@ class Quest {
     required this.title,
     this.description = '',
     this.xp = 10,
-    this.difficulty = 'easy',
+    //this.difficulty = 'easy',
     this.completed = false,
   });
 
@@ -20,16 +20,7 @@ class Quest {
     'title': title,
     'description': description,
     'xp': xp,
-    'difficulty': difficulty,
+    //'difficulty': difficulty,
     'completed': completed,
   };
-
-  factory Quest.fromMap(Map<String, dynamic> map) => Quest(
-    id: map['id'],
-    title: map['title'],
-    description: map['description'] ?? '',
-    xp: map['xp'] ?? 10,
-    difficulty: map['difficulty'] ?? 'easy',
-    completed: map['completed'] ?? false,
-  );
 }
