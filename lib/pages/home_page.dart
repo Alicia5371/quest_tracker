@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quest_tracker/models/quest.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,8 +17,8 @@ class _HomePageState extends State<HomePage> {
         title: Text("Quest Tracker"),
         backgroundColor: const Color(0xFF1B2A41),
         titleTextStyle: TextStyle(
+          fontFamily: 'PixelFont',
           fontSize: 30,
-          fontWeight: FontWeight.bold,
           color: Color(0xFFEAEAEA),
         ),
       ),
