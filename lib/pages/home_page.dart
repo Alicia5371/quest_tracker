@@ -71,10 +71,64 @@ class _HomePageState extends State<HomePage> {
                   backgroundColor: Colors.grey[700],
                   minHeight: 10,
                 ),
+                const SizedBox(height: 4),
+                Text(
+                  '$totalXP XP',
+                  style: const TextStyle(
+                    fontFamily: 'PixelFont',
+                    fontSize: 14,
+                    color: Colors.white70,
+                  ),
+                ),
               ],
             ),
           ),
+          Expanded(
+            child: ListView.builder(
+              padding: const EdgeInsets.all(16),
+              itemCount: quests.length,
+              itemBuilder: (context, index) {
+                final quest = quests[index];
+                return Card(
+                  color: const Color(0xFF2C3E50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  margin: const EdgeInsets.symmetric(vertical: 8),
+                  child: ListTile(
+                    title: Text(
+                      quest.title,
+                      style: const TextStyle(
+                        fontFamily: 'PixelFont',
+                        fontSize: 18,
+                        color: Color(0xFFEAEAEA),
+                      ),
+                    ),
+                    trailing: Icon(
+                      quest.completed
+                          ? Icons.check_circle
+                          : Icons.circle_outlined,
+                      color: quest.completed ? Colors.green : Colors.grey,
+                    ),
+                    onTap: () {
+                      setState(() {
+                        quest.completed = !quest.completed;
+                        totalXP = calculateTotalXP();
+                      });
+                    },
+                  ),
+                );
+              },
+            ),
+          ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          //TODO: Naviagte to Ad Quest screen
+        },
+        backgroundColor: const Color(0xFFFFC857),
+        child: const Icon(Icons.add, color: Colors.black, size: 35),
       ),
     );
   }
